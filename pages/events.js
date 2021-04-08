@@ -2,9 +2,9 @@ import React from 'react';
 
 const EventsPage = () => {
   return (
-    <div>
+    <section>
       <h1>This is all events pages</h1>
-    </div>
+    </section>
   );
 };
 
