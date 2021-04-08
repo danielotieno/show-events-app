@@ -1,13 +1,16 @@
 import Head from 'next/head';
+import EventList from '../components/events/EventList';
+import { getFeaturedEvents } from '../data/data';
 
 function HomePage() {
+  const featuredEvents = getFeaturedEvents();
   return (
     <div>
       <Head>
         <title>Welcome || Events Pages</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <h1>Featured events page</h1>
+      <EventList events={featuredEvents} />
     </div>
   );
 }
