@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Nav = () => {
+function Nav() {
   return (
     <header className='bg-yellow-800'>
       <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
@@ -44,6 +44,6 @@ const Nav = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Nav;
