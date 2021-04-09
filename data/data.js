@@ -29,6 +29,16 @@ const DUMMY_EVENTS = [
     image: 'images/networking.jpg',
     isFeatured: true,
   },
+  {
+    id: 'e4',
+    title: 'Programming for everyone',
+    description:
+      'Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.we are going to go through all the key basics and get you started with programming as well.',
+    location: 'Somestreet 25, 12345 San Somewhereo.',
+    date: '2021-05-12',
+    image: 'images/programming.jpg',
+    isFeatured: false,
+  },
 ];
 
 export function getFeaturedEvents() {
