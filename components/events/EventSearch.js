@@ -1,14 +1,31 @@
-import React from 'react';
+import { useRef } from 'react';
 
-function EventSearch() {
+function EventSearch({ onSearch }) {
+  const yearInputRef = useRef();
+  const monthInputRef = useRef();
+
+  function submitHandler(e) {
+    e.preventDefault();
+
+    const selectedYear = yearInputRef.current.value;
+    const selectedMonth = monthInputRef.current.value;
+
+    onSearch(selectedYear, selectedMonth);
+  }
+
   return (
-    <form className='container px-8 py-16 mx-auto mt-10 bg-white rounded-lg shadow-md'>
+    <form
+      className='container px-8 py-16 mx-auto mt-10 bg-white rounded-lg shadow-md'
+      onSubmit={submitHandler}>
       <div className='flex justify-center'>
         <div className='px-8'>
           <label className='px-5 font-semibold' htmlFor='year'>
             Year
           </label>
-          <select id='year' className='py-2 rounded lg:pr-36'>
+          <select
+            id='year'
+            className='py-2 rounded lg:pr-36'
+            ref={yearInputRef}>
             <option value='2021'>2021</option>
             <option value='2022'>2022</option>
           </select>
@@ -17,7 +34,10 @@ function EventSearch() {
           <label className='px-4 font-semibold ' htmlFor='month'>
             Month
           </label>
-          <select id='month' className='py-2 rounded lg:pr-36'>
+          <select
+            id='month'
+            className='py-2 rounded lg:pr-36'
+            ref={monthInputRef}>
             <option value='1'>January</option>
             <option value='2'>February</option>
             <option value='3'>March</option>
