@@ -4,22 +4,22 @@ import HomeIcon from '../icons/HomeIcon';
 
 function EventInfo({ title, description, location, date }) {
   return (
-    <div class='lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'>
-      <h1 class='font-serif sm:text-4xl text-3xl mb-4 font-extrabold text-gray-900'>
+    <div className='flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0'>
+      <h1 className='mb-4 font-serif text-3xl font-extrabold text-gray-900 sm:text-4xl'>
         {title}
       </h1>
-      <p class='mb-8 leading-relaxed text-base'>{description}</p>
-      <p class='mb-8 leading-relaxed md:text-xl uppercase'>
+      <p className='mb-8 text-base leading-relaxed'>{description}</p>
+      <p className='mb-8 leading-relaxed uppercase md:text-xl'>
         {' '}
         <span className='font-serif font-bold'>Location</span> : {location}
       </p>
-      <p class='mb-8 leading-relaxed md:text-xl uppercase'>
+      <p className='mb-8 leading-relaxed uppercase md:text-xl'>
         {' '}
         <span className='font-serif font-bold'>Date</span> : {date}
       </p>
-      <div class='flex justify-center'>
+      <div className='flex justify-center'>
         <Link href='/'>
-          <button class='inline-flex text-white bg-yellow-900 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded text-lg'>
+          <button className='inline-flex px-6 py-2 text-lg text-white bg-yellow-900 border-0 rounded focus:outline-none hover:bg-yellow-700'>
             <span>Back Home</span>{' '}
             <span className='mx-2'>
               <HomeIcon />

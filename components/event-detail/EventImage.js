@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function EventImage({ image }) {
   return (
-    <div class='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
+    <div className='w-5/6 lg:max-w-lg lg:w-full md:w-1/2'>
       <Image
         width={400}
         height={500}

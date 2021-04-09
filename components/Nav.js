@@ -7,7 +7,7 @@ function Nav() {
       <div className='container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row'>
         <Link href='/'>
           <a className='flex items-center mb-4 font-medium text-gray-900 title-font lg:w-1/2 md:mb-0'>
-            <h1 className='mt-3 ml-3 font-serif font-bold text-white lg:text-3xl '>
+            <h1 className='mt-3 ml-3 font-serif text-3xl font-bold text-white '>
               JS Bits Events
             </h1>
           </a>
