@@ -1,3 +1,4 @@
+import router from 'next/router';
 import EventList from '../../components/events/EventList';
 import EventSearch from '../../components/events/EventSearch';
 
@@ -25,6 +26,7 @@ export const getStaticProps = async () => {
     props: {
       events,
     },
+    revalidate: 60,
   };
 };
 

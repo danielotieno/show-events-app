@@ -1,41 +1,22 @@
-import { useRouter } from 'next/router';
 import EventList from '../../components/events/EventList';
-import { getFilteredEvents } from '../../data/data';
+import { getFilteredEvents } from '../../healpers/api-util';
 
-function FilteredEventsPage() {
-  const router = useRouter();
+function FilteredEventsPage({ hasError, filteredEvents }) {
+  // if (!filteredData) {
+  //   return (
+  //     <div>
+  //       <p>Loading!!!</p>
+  //     </div>
+  //   );
+  // }
 
-  const filteredData = router.query.slug;
-
-  console.log(filteredData);
-
-  if (!filteredData) {
+  if (hasError) {
     return (
       <div>
-        <p>Loading!!!</p>
+        <p>Invalid Filter please adjust your values</p>
       </div>
     );
   }
-
-  const [filteredYear, filteredMonth] = filteredData;
-
-  const numYear = +filteredYear;
-  const numMonth = +filteredMonth;
-
-  console.log(numYear);
-
-  if (isNaN(numYear) || isNaN(numMonth) || numMonth > 12 || numMonth < 1) {
-    return (
-      <div>
-        <p>Invalid Filter search</p>
-      </div>
-    );
-  }
-
-  const filteredEvents = getFilteredEvents({
-    year: numYear,
-    month: numMonth,
-  });
 
   if (filteredEvents.length === 0 || !filteredEvents) {
     return (
@@ -51,5 +32,32 @@ function FilteredEventsPage() {
     </>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const filteredData = context.params.slug;
+
+  const [filteredYear, filteredMonth] = filteredData;
+
+  const numYear = +filteredYear;
+  const numMonth = +filteredMonth;
+
+  if (isNaN(numYear) || isNaN(numMonth) || numMonth > 12 || numMonth < 1) {
+    return {
+      props: { hasError: true },
+      // notFound: true
+    };
+  }
+
+  const filteredEvents = await getFilteredEvents({
+    year: numYear,
+    month: numMonth,
+  });
+
+  return {
+    props: {
+      filteredEvents,
+    },
+  };
+};
 
 export default FilteredEventsPage;
