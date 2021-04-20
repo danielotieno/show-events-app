@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import EventList from '../components/events/EventList';
-import { getFeaturedEvents } from '../data/data';
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
+function HomePage({ featuredEvents }) {
   return (
     <div>
       <Head>
@@ -14,5 +12,17 @@ function HomePage() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch(`http://localhost:1337/events?isFeatured_eq=true`);
+
+  const featuredEvents = await res.json();
+
+  return {
+    props: {
+      featuredEvents,
+    },
+  };
+};
 
 export default HomePage;
