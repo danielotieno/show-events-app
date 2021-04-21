@@ -8,7 +8,7 @@ function Register() {
           className='px-4 py-2 text-gray-800 bg-white border-t border-b border-l border-gray-200 rounded-md '
           placeholder='your@mail.com'
         />
-        <button className='px-4 py-2 font-bold text-white uppercase bg-yellow-800 border-t border-b border-r border-yellow-900 rounded-md'>
+        <button className='px-4 py-2 font-bold leading-relaxed text-white uppercase bg-yellow-800 border-t border-b border-r border-yellow-900 rounded-md'>
           Register
         </button>
       </form>
