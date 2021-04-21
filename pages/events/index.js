@@ -1,8 +1,10 @@
-import router from 'next/router';
+import { useRouter } from 'next/router';
 import EventList from '../../components/events/EventList';
 import EventSearch from '../../components/events/EventSearch';
 
 function AllEventsPage({ events }) {
+  const router = useRouter();
+
   function findEventsHandler(year, month) {
     const fullPath = `/events/${year}/${month}`;
 

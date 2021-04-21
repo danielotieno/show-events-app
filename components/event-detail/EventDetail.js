@@ -13,7 +13,7 @@ function EventDetail({ event }) {
           location={location}
           date={date}
         />
-        <EventImage image={image} />
+        <EventImage image={image} title={title} />
       </div>
     </section>
   );
