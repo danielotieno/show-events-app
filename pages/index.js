@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import EventList from '../components/events/EventList';
+import Register from '../components/Register';
 
 function HomePage({ featuredEvents }) {
   return (
@@ -8,6 +9,7 @@ function HomePage({ featuredEvents }) {
         <title>Welcome || Events Pages</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <Register />
       <EventList events={featuredEvents} />
     </div>
   );
